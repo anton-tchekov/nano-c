@@ -1,7 +1,7 @@
 # nano-c
 Very small C compiler
 
-Tested and works on an Arduino UNO (only 2048 bytes RAM).
+Modified version works on an Arduino Uno (only 2048 bytes RAM).
 
 ## Features
 
