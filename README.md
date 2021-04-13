@@ -12,10 +12,11 @@ Tested and works on an Arduino UNO (only 2048 bytes RAM).
 * local and global variables
 * configurable I/O functions
 * int type (can be used as pointers to a global data area)
-* generates bytecode that is then interpreted
+* generates bytecode that is then run by an interpreter
 
 ## TODO
 
+* function prototypes
 * switch-case
 * structs
 * arrays on the stack
