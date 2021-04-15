@@ -1,0 +1,5 @@
+map.c:5:5:hash	16	static
+map.c:17:5:map_find_hash	64	static
+map.c:41:5:map_find	64	static
+map.c:48:5:map_insert	64	static
+map.c:68:6:map_init	16	static

@@ -1,0 +1,12 @@
+parser.c:25:5:read_32	16	static
+parser.c:32:6:write_32	16	static
+parser.c:69:12:get_precedence	16	static
+parser.c:123:5:parser_parse	64	static
+parser.c:170:12:parser_function	64	static
+parser.c:227:12:parser_block	48	static
+parser.c:289:13:handle_break	24	static
+parser.c:298:13:handle_continue	24	static
+parser.c:307:12:parser_statement	208	static
+parser.c:563:12:parser_substmt	96	static
+parser.c:680:12:parser_fncall	48	static
+parser.c:719:12:parser_expression	272	static

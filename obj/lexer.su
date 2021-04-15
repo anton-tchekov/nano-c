@@ -1,0 +1,3 @@
+lexer.c:29:6:lexer_init	16	static
+lexer.c:37:6:lexer_advance	16	static
+lexer.c:54:5:lexer_next	48	static
