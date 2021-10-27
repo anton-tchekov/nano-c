@@ -10,20 +10,9 @@ Modified version works on an Arduino Uno (only 2048 bytes RAM).
 * break and continue
 * functions and recursion
 * local and global variables
-* configurable I/O functions
 * relatively helpful error messages
 * int type (can be used as pointers to a global data area)
 * generates bytecode that is then run by an interpreter
-
-## TODO
-
-* function prototypes
-* switch-case
-* structs
-* arrays on the stack
-* float, char type
-* native code generator
-* optimization
 
 ## Example code it can run
 
