@@ -18,7 +18,8 @@ int fib(int n)
 /* factorial */
 int fact(int n)
 {
-	int res = 1;
+	int res;
+	res = 1;
 	while(n)
 	{
 		res *= n;
@@ -26,6 +27,11 @@ int fact(int n)
 	}
 
 	return res;
+}
+
+int sort(int p, int count)
+{
+	quicksort(p, 0, count - 1);
 }
 
 int quicksort(int arr, int first, int last)
@@ -65,17 +71,13 @@ int quicksort(int arr, int first, int last)
 	}
 }
 
-int sort(int ptr, int count)
-{
-	quicksort(ptr, 0, count - 1);
-}
-
-int find(int ptr, int count, int elem)
+int find(int p, int count, int elem)
 {
 	int i;
+
 	for(i = 0; i < count; i += 1)
 	{
-		if(ptr[i] == elem)
+		if(p[i] == elem)
 		{
 			return i;
 		}
@@ -86,24 +88,47 @@ int find(int ptr, int count, int elem)
 
 int main()
 {
-	int buf = 0; // pointer
+	int buf;
 	int i, n;
+	buf = 0; // pointer
 
-	print(fib(10)); // Should be 55
-	print(fact(9)); // Should be 362880
+	print_string("fib(20) = ");
+	print_number(fib(20)); // Should be 55
+	print_string("\n");
 
-	n = get(); // Get arr of values
+	print_string("fact(9) = ");
+	print_number(fact(9)); // Should be 362880
+	print_string("\n");
+
+	print_string("Array Length = ");
+	n = get_number(); // Get arr of values
 
 	// Get values (and test for loop)
 	for(i = 0; i < n; i += 1)
 	{
-		buf[i] = get();
+		print_string("Array[");
+		print_number(i); // Get arr of values
+		print_string("] = ");
+		buf[i] = get_number();
 	}
+
+	print_string("----------\n");
+
+	for(i = 0; i < n; i += 1)
+	{
+		print_string("Array[");
+		print_number(i); // Get arr of values
+		print_string("] = ");
+		print_number(buf[i]);
+		print_string("\n");
+	}
+
+	print_string("----------\n");
 
 	/* if it contains 12 */
 	if(find(buf, n, 12) >= 0)
 	{
-		print(55555555);
+		print_string("Array contains 12!\n");
 	}
 
 	sort(buf, n);
@@ -112,7 +137,11 @@ int main()
 	i = 0;
 	while(i < n)
 	{
-		print(buf[i]);
+		print_string("Sorted[");
+		print_number(i); // Get arr of values
+		print_string("] = ");
+		print_number(buf[i]);
+		print_string("\n");
 		i += 1;
 	}
 }

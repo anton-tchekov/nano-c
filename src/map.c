@@ -1,20 +1,18 @@
 #include "map.h"
-#include "main.h"
 #include <string.h>
 
-u64 hash(char *s, u32 len)
+static u32 _map_hash(const char *s, u32 len)
 {
-	u32 i;
-	u64 h;
-	for(i = 0, h = 5381; i < len; ++i, ++s)
+	u32 i, h;
+	for(i = 0, h = 0; i < len; ++i)
 	{
-		h = ((h << 5) + h) + *s;
+		h = 37 * h + s[i];
 	}
 
 	return h;
 }
 
-i32 map_find_hash(Map *map, char *key, u32 len, u64 h)
+static i32 _map_find_hash(Map *map, const char *key, u32 len, u32 h)
 {
 	u32 i;
 	for(i = 0; i < map->Count; ++i)
@@ -38,23 +36,23 @@ i32 map_find_hash(Map *map, char *key, u32 len, u64 h)
 	return -1;
 }
 
-i32 map_find(Map *map, char *key, u32 len)
+i32 _map_find(Map *map, const char *key, u32 len)
 {
-	u64 h;
-	h = hash(key, len);
-	return map_find_hash(map, key, len, h);
+	u32 h;
+	h = _map_hash(key, len);
+	return _map_find_hash(map, key, len, h);
 }
 
-i32 map_insert(Map *map, char *key, u32 len)
+i32 _map_insert(Map *map, const char *key, u32 len)
 {
-	u64 h;
+	u32 h;
 	if(map->Count >= map->Size)
 	{
 		return -ERROR_STACK_OVERFLOW;
 	}
 
-	h = hash(key, len);
-	if(map_find_hash(map, key, len, h) != -1)
+	h = _map_hash(key, len);
+	if(_map_find_hash(map, key, len, h) != -1)
 	{
 		return -ERROR_DUP_MAP_ELEM;
 	}
@@ -65,10 +63,9 @@ i32 map_insert(Map *map, char *key, u32 len)
 	return map->Count++;
 }
 
-void map_init(Map *map, MapElement *buf, u32 size)
+void _map_init(Map *map, MapElement *buf, u32 size)
 {
 	map->Elements = buf;
 	map->Count = 0;
 	map->Size = size;
 }
-
